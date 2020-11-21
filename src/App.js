@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import About from "./components/About";
+import AddPost from "./components/AddPost";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Post from "./components/Post";
+import UpdatePost from "./components/UpdatePost";
 
 class App extends Component {
   render() {
@@ -16,6 +18,8 @@ class App extends Component {
             <Route exact path="/" component={ Home } />
             <Route path="/about" component={ About } />
             <Route path="/contact" component={ Contact } />
+            <Route path="/add" component={ AddPost } />
+            <Route path="/update/:post_id" component={ UpdatePost } />
             <Route path="/:post_id" component={ Post } />
           </Switch>
         </div>

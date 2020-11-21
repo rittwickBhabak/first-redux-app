@@ -14,6 +14,23 @@ const rootReducer = (state = initState, action) => {
             posts: newPosts
         }
     }
+    if(action.type==='ADD_POST'){
+        return {
+            ...state,
+            posts: [...state.posts, {id: Math.random(), title: action.title, body:action.body}]
+        }
+    }
+    if(action.type==='UPDATE_POST'){
+        console.log(action)
+        let post = state.posts.find(post => post.id==action.id)
+        post.title = action.title;
+        post.body = action.body;
+        let newPosts = state.posts.filter(post => post.id!=action.id)
+        return {
+            ...state,
+            posts: [...newPosts, post]
+        }
+    }
     return state
 }
 
